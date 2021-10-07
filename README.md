@@ -1,6 +1,10 @@
+# The Lesson
+
+This repository includes a Python code used for teaching students about Python classes and objects. A simple application is used throughout the lesson.
+
 # The Application
 
-This application designs an IPv4 address plan using simple algorithm:
+The application designs an IPv4 address plan using a simple algorithm:
 
 ```
 Input:   
@@ -22,8 +26,30 @@ Steps:
 8. Generate a list all subnets that can be created from the main prefix
 ```
 
-## Modules
+# Modules
+
+The Python modules used are:
 
 - ipaddress
 - PyYaml
 - sys
+- math
+
+# Prior Skills
+
+Before starting this lesson, students should have the following skills:
+
+- Use IDEs or online tools to write Python code
+- Install Python modules and import modules into code
+- Write statements and expressions
+- Write *for* loops to iterate over lists
+- Write *if-else* statements
+- Write *print* statements
+- Write functions that take arguments and return values
+
+# Lesson Objectives
+
+By the end of this lesson, students should be able to:
+
+- Define Classes and use objects  
+- Organize code into multiple files
