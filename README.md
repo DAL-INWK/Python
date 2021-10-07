@@ -21,3 +21,9 @@ Steps:
 7. If NO, exit with error message
 8. Generate a list all subnets that can be created from the main prefix
 ```
+
+## Modules
+
+- ipaddress
+- PyYaml
+- sys
