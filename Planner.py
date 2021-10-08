@@ -10,12 +10,16 @@ import ipaddress as ipv4
 
 class AddressPlanner():
     
+    def __init__(self, prefix, mask_len, hosts):
+        self.set_requirements(prefix, mask_len, hosts)
+        
     def set_requirements(self, prefix, mask_len, hosts):
         self.prefix = prefix
         self.mask_len = mask_len
         self.hosts = hosts
         
-        return sum(self.hosts) <= 2**(32-self.mask_len)
+        if sum(self.hosts) > 2**(32-self.mask_len):
+            raise ValueError("Cannot proceed")
     
     def bits_needed(self):
         bits = []
@@ -46,14 +50,15 @@ class AddressPlanner():
 if __name__ == "__main__":
 
     prefix = '10.10.0.0'
-    mask = 16
+    mask = 24
     hosts = [1777, 156, 5, 672, 850, 70]
 
-    planner = AddressPlanner()
-        
-    if not planner.set_requirements(prefix, mask, hosts):
-        print("cannot proceed")
+    try:
+        planner = AddressPlanner(prefix, mask, hosts)
+    except ValueError as e:
+        print(f"Error: {e}")
         sys.exit(0)
+
         
     subnets = planner.assign_subnets()
     
