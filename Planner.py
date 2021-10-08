@@ -19,9 +19,23 @@ def bits_needed(hosts):
         bits.append(math.ceil(math.log2(b+2)))
     return bits
 
+def net_bits(nets, mask_len):
+    return 32-mask_len-max(nets)
+
 if not check(hosts, mask):
     print("cannot proceed")
     sys.exit(0)
     
+
+netbits = bits_needed(hosts)
+
+ext = net_bits(netbits, mask)
+
+num_subnets = 2**ext
+
+if num_subnets < len(hosts):
+    print("you need better algorithm")
+    sys.exit(0)
     
-print(bits_needed(hosts))
+
+    
